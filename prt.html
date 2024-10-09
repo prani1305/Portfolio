@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prandideeth Kumar - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kay+Pho+Du&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        body {
+            padding-top: 120px;
+            font-family: 'Kay Pho Du', sans-serif;
+            background: #000; /* Background color (black) */
+            background-image: url('bg_2.jpg'); /* Background image */
+            background-size: cover; /* Make sure the image covers the entire body */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            min-height: 100vh; 
+            color: #e0e0e0; /* Light gray text for contrast */
+        }
+
+        header {
+            background-color: #000000; /* Dark gray */
+            color: #d7d7d7; /* Light blue */
+            padding: 20px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            left: 0px;
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
+            text-align: center;
+        }
+
+        .logo {
+            position: absolute; /* Position the logo absolutely */
+            left: 20px; /* Space from the left */
+            top: 20px; /* Space from the top */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .hero-text p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .hero img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        section {
+            background-color: #1a1a1a; /* Dark gray */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 1200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #ffb3ba; /* Light red */
+            border-bottom: 2px solid #ffb3ba;
+            padding-bottom: 10px;
+        }
+
+        .skills, .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .skill, .project {
+            background-color: #292929; /* Darker gray */
+            padding: 10px;
+            border-radius: 5px;
+            flex: 1 1 calc(30% - 20px);
+            text-align: center;
+            color: #a0c4ff; /* Light blue */
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #1a1a1a; /* Dark gray */
+            color: #a0c4ff; /* Light blue */
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero img {
+                max-width: 100%;
+            }
+
+            .skill, .project {
+                flex: 1 1 100%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="logo.png" alt="Logo" width="150" height="150"> <!-- Add your logo here -->
+        <div>
+            <h1>Prandideeth Kumar</h1>
+            <p>AI Enthusiast & Full Stack Developer</p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Welcome to My Portfolio!</h1>
+                <p>I'm an ardent AI enthusiast and a full stack developer. I create web applications and explore the world of artificial intelligence.</p>
+            </div>
+            <img style="object-fit: cover; align-items: start;" src="pranideeth.jpg" alt="Prandideeth Kumar" />
+        </div>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill">JavaScript</div>
+                <div class="skill">Python</div>
+                <div class="skill">React</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">AI/ML</div>
+                <div class="skill">HTML & CSS</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">Whole brain emulation(In progress)</div>
+                <div class="project">Artificial general intelligence</div>
+                <div class="project">Mega Military Mansion</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact Me</h2>
+            <p>Email: prandideeth1305@gmail.com</p>
+            <p>LinkedIn: <a href="www.linkedin.com/in/pranideeth" target="_blank" style="color: #a0c4ff;">linkedin.com/in/prandideethkumar</a></p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2024 Prandideeth Kumar. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript code for interactivity can be added here
+        console.log("Welcome to Prandideeth Kumar's Portfolio!");
+    </script>
+</body>
+</html>
