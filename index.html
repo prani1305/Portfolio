@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +9,76 @@
     <link rel="icon" href="logo.png" type="image/x-icon">
     <style>
         body {
-            padding-top: 120px;
+            padding-top: 190px; /* Space for the header */
             font-family: 'Kay Pho Du', sans-serif;
             background: #000; /* Background color (black) */
             background-image: url('bg_2.jpg'); /* Background image */
             background-size: cover; /* Make sure the image covers the entire body */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
-            min-height: 100vh; 
+            min-height: 100vh;
             color: #e0e0e0; /* Light gray text for contrast */
         }
 
         header {
-            background-color: #000000; /* Dark gray */
+            background-color: #000; /* Dark gray */
             color: #d7d7d7; /* Light gray */
-            padding: 20px;
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            left: 0px;
+            padding: 15px; /* Adjusted padding for smaller screens */
+            position: fixed; /* Fixed position for better mobile experience */
+            top: 0;
+            right: 0;
+            left: 0;
             display: flex; /* Use flexbox for layout */
             align-items: center; /* Center items vertically */
-            justify-content: center; /* Center items horizontally */
+            justify-content: center; /* Center content */
             text-align: center;
+            z-index: 15; /* Ensure header is on top */
         }
 
         .logo {
-            position: absolute; /* Position the logo absolutely */
-            left: 20px; /* Space from the left */
-            top: 20px; /* Space from the top */
-            width: 50px; /* Adjust logo size as needed */
+            width: 25%; /* Set logo width to 25% of header */
+            max-width: 120px; /* Maximum width for larger screens */
             height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between logo and text */
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column; /* Stack name and description vertically */
+            align-items: center; /* Center the text */
+            flex: 1; /* Allow this section to take up available space */
+        }
+
+        nav {
+            margin: 20px 0; /* Space above and below the navigation */
+            z-index: 10; /* Keep navigation above other content */
+            position: relative; /* Make position relative */
+            padding: 10px; /* Added padding for touch targets */
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Wrap buttons on smaller screens */
+            gap: 10px; /* Space between buttons */
+        }
+
+        .nav-button {
+            background-color: #26e2ff; /* Light blue */
+            color: #000; /* Black text */
+            padding: 12px 20px; /* Increased padding for better touch targets */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s; /* Transition for effects */
+            flex: 1 1 100%; /* Full width on mobile */
+            max-width: 200px; /* Max width for buttons */
+        }
+
+        .nav-button:hover {
+            background-color: #1a1a1a; /* Dark gray on hover */
+            transform: scale(1.05); /* Slightly enlarge button */
         }
 
         .container {
@@ -46,36 +86,38 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            margin-top: 80px; /* Space to account for fixed header */
         }
 
         .hero {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Stack vertically on mobile */
+            justify-content: center;
             align-items: center;
             width: 100%;
-            max-width: 1200px;
             margin: 20px 0;
         }
 
         .hero-text {
-            flex: 1;
             padding: 20px;
+            text-align: center; /* Center text */
         }
 
         .hero-text h1 {
-            font-size: 2.5em;
+            font-size: 2em; /* Adjusted size for mobile */
             margin: 0;
         }
 
         .hero-text p {
-            font-size: 1.2em;
+            font-size: 1em; /* Adjusted size for mobile */
             margin: 10px 0;
         }
 
         .hero img {
-            max-width: 400px;
+            max-width: 90%; /* Responsive image */
             height: auto;
             border-radius: 10px;
+            margin-top: 10px; /* Spacing above image */
         }
 
         section {
@@ -84,28 +126,29 @@
             padding: 20px;
             margin: 20px 0;
             width: 100%;
-            max-width: 1200px;
+            max-width: 600px; /* Max width for sections */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
-            color: #ffb3ba; /* Light red */
+            color: #26e2ff; /* Light blue */
             border-bottom: 2px solid #ffb3ba;
             padding-bottom: 10px;
+            text-align: center; /* Center the heading */
         }
 
         .skills, .projects {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
+            gap: 10px; /* Reduced gap for mobile */
+            justify-content: center; /* Center items */
         }
 
         .skill, .project {
             background-color: #292929; /* Darker gray */
             padding: 10px;
             border-radius: 5px;
-            flex: 1 1 calc(30% - 20px);
+            flex: 1 1 calc(45% - 10px); /* Two items per row on mobile */
             text-align: center;
             color: #a0c4ff; /* Light blue */
         }
@@ -121,29 +164,57 @@
             width: 100%;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .hero {
-                flex-direction: column;
+                flex-direction: row; /* Row layout on larger screens */
+            }
+
+            .hero-text {
+                flex: 1; /* Take more space on larger screens */
+                padding: 20px; /* Maintain padding */
+                text-align: left; /* Align left on larger screens */
             }
 
             .hero img {
-                max-width: 100%;
+                max-width: 400px; /* Fixed width on larger screens */
+                margin-left: 20px; /* Space between text and image */
             }
 
-            .skill, .project {
-                flex: 1 1 100%; /* Full width on small screens */
+            .nav-button {
+                flex: 1 1 auto; /* Flex to auto size on larger screens */
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .hero-text h1 {
+                font-size: 2.5em; /* Larger heading on big screens */
+            }
+
+            .hero-text p {
+                font-size: 1.2em; /* Larger text on big screens */
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <img class="logo" src="logo.png" alt="Logo for Prandideeth Kumar's Portfolio" width="50" height="50"> <!-- Add your logo here -->
-        <div>
+        <img class="logo" src="logo.png" alt="Logo for Prandideeth Kumar's Portfolio"> <!-- Add your logo here -->
+        <div class="header-content">
             <h1>Prandideeth Kumar</h1>
             <p>AI Enthusiast & Full Stack Developer</p>
         </div>
     </header>
+
+    <nav>
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="scrollToSection('my-motives')">My Motives</button>
+            <button class="nav-button" onclick="scrollToSection('skills')">Skills</button>
+            <button class="nav-button" onclick="scrollToSection('projects')">Projects</button>
+            <button class="nav-button" onclick="scrollToSection('contact')">Contact Me</button>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="hero">
             <div class="hero-text">
@@ -153,7 +224,18 @@
             <img style="object-fit: cover; align-items: start;" src="pranideeth.jpg" alt="Prandideeth Kumar" />
         </div>
 
-        <section>
+        <section id="my-motives">
+            <h2>My Motives</h2>
+            <p>
+                Hi! I'm Prandideeth Kumar, a passionate full stack developer with a keen interest in artificial intelligence. 
+                I enjoy exploring new technologies and implementing innovative solutions to real-world problems. 
+                With a solid foundation in both front-end and back-end development, I aim to create seamless user experiences 
+                and contribute to the ever-evolving field of AI. In my spare time, I love reading, engaging in online courses, 
+                and working on personal projects that challenge my skills and creativity. 
+            </p>
+        </section>
+
+        <section id="skills">
             <h2>Skills</h2>
             <div class="skills">
                 <div class="skill">JavaScript</div>
@@ -165,29 +247,33 @@
             </div>
         </section>
 
-        <section>
+        <section id="projects">
             <h2>Projects</h2>
             <div class="projects">
-                <div class="project">Whole brain emulation(In progress)</div>
+                <div class="project">Whole brain emulation (In progress)</div>
                 <div class="project">Artificial general intelligence</div>
                 <div class="project">Mega Military Mansion</div>
             </div>
         </section>
 
-        <section>
+        <section id="contact">
             <h2>Contact Me</h2>
             <p>Email: prandideeth1305@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/pranideeth" target="_blank" style="color: #a0c4ff;">linkedin.com/in/prandideethkumar</a></p>
         </section>
     </div>
 
     <footer>
-        &copy; 2024 Prandideeth Kumar. All rights reserved.
+        <p>&copy; 2024 Prandideeth Kumar</p>
     </footer>
 
     <script>
-        // JavaScript code for interactivity can be added here
-        console.log("Welcome to Prandideeth Kumar's Portfolio!");
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     </script>
 </body>
+
 </html>
